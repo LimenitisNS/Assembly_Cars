@@ -1,5 +1,6 @@
 ﻿using System;
 using AssemblyCars.Factory;
+using AssemblyCars.Factory.PartCars;
 
 namespace AssemblyCars
 {

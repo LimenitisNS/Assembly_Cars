@@ -36,36 +36,36 @@ namespace AssemblyCars.Factory
             Detail bearling = new Detail() { name = "Bearling", quantity = 3, weight = 0.13f};
             Detail shank = new Detail() { name = "Shank", quantity = 1, weight = 0.32f};
 
-            car.detail.Add(engineV6);
-            car.detail.Add(wheel);
-            car.detail.Add(transmission);
-            car.detail.Add(differential);
-            car.detail.Add(door);
-            car.detail.Add(gasTank);
+            car.Add(engineV6);
+            car.Add(wheel);
+            car.Add(transmission);
+            car.Add(differential);
+            car.Add(door);
+            car.Add(gasTank);
 
-            engineV6.detail.Add(pistonSystem);
-            engineV6.detail.Add(valueSystem);
-            engineV6.detail.Add(intakeManifold);
-            engineV6.detail.Add(exhaustManifold);
-            engineV6.detail.Add(radiator);
+            engineV6.Add(pistonSystem);
+            engineV6.Add(valueSystem);
+            engineV6.Add(intakeManifold);
+            engineV6.Add(exhaustManifold);
+            engineV6.Add(radiator);
 
-            pistonSystem.detail.Add(piston);
-            pistonSystem.detail.Add(crankshaft);
-            pistonSystem.detail.Add(link);
-            pistonSystem.detail.Add(gasket);
+            pistonSystem.Add(piston);
+            pistonSystem.Add(crankshaft);
+            pistonSystem.Add(link);
+            pistonSystem.Add(gasket);
 
-            valueSystem.detail.Add(value);
-            valueSystem.detail.Add(camshaft);
+            valueSystem.Add(value);
+            valueSystem.Add(camshaft);
 
-            wheel.detail.Add(disk);
-            wheel.detail.Add(tire);
+            wheel.Add(disk);
+            wheel.Add(tire);
 
-            door.detail.Add(glass);
-            door.detail.Add(doorCard);
+            door.Add(glass);
+            door.Add(doorCard);
 
-            differential.detail.Add(gears);
-            differential.detail.Add(bearling);
-            differential.detail.Add(shank);
+            differential.Add(gears);
+            differential.Add(bearling);
+            differential.Add(shank);
 
             differential.CalculateWeight();
             door.CalculateWeight();
@@ -78,34 +78,7 @@ namespace AssemblyCars.Factory
 
         public void GetInfo()
         {
-            GetInfoComponent(car);
-        }
-
-        private void GetInfoComponent(Component component)
-        {
-            Console.WriteLine($"\t     {component.name}");
-            List<Component> subassembly = new List<Component> { };
-            component.GetInfo();
-            Console.WriteLine();
-
-            for (int i = 0; i < component.detail.Count; i++)
-            {
-                if (component.detail[i].GetType() == typeof(Subassembly))
-                {
-                    component.detail[i].GetInfo();
-                    subassembly.Add(component.detail[i]);
-                }
-                else
-                {
-                    component.detail[i].GetInfo();
-                }
-            }
-
-            for (int i = 0; i < subassembly.Count; i++)
-            {
-                Console.WriteLine();
-                GetInfoComponent(subassembly[i]);
-            }
+            car.Display();
         }
     }
 }

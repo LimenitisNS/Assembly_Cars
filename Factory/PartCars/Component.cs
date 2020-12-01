@@ -9,11 +9,14 @@ namespace AssemblyCars.Factory.PartCars
         public int quantity { get; set; }
         public float weight { get; set; }
 
-        public List<Component> detail = new List<Component> { };
-
-        public void GetInfo()
+        public virtual void Display()
         {
             Console.WriteLine($"{name}: Quanity = {quantity} weight = {weight}");
+        }
+
+        public virtual float GetWeight()
+        {
+            return weight;
         }
     }
 }

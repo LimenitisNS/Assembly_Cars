@@ -1,10 +1,8 @@
-﻿namespace AssemblyCars.Factory.PartCars
+﻿using System;
+
+namespace AssemblyCars.Factory.PartCars
 {
     class Detail : Component
-    { 
-        public Detail()
-        {
-            weight *= quantity;
-        }
+    {
     }
 }

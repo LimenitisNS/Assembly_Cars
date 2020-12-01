@@ -1,0 +1,15 @@
+﻿Subassembly car = new Subassembly() { name = "Car", quantity = 1 };
+Subassembly door = new Subassembly() { name = "Door", quantity = 4 };
+
+Detail glass = new Detail() { name = "Glass", quantity = 1, weight = 15 };
+Detail doorCard = new Detail() { name = "Door kard", quantity = 1, weight = 5 };
+
+car.Add(door);
+
+door.Add(glass);
+door.Add(doorCard);
+
+door.CalculateWeight();
+car.CalculateWeight();
+
+car.Display();
