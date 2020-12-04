@@ -19,22 +19,13 @@ namespace AssemblyCars.Factory.PartCars
         public void CalculateWeight()
         {
             float newWeight = 0;
-            Component past = null;
 
             foreach (Component component in detail)
             {
-                if (past == component)
-                {
-                    continue;
-                }
-                else
-                {
-                    past = component;
-                    newWeight += component.weight;
-                }
+                newWeight += component.weight;
             }
 
-            weight = newWeight * quantity;
+            weight = newWeight;
         }
 
         public override float GetWeight()
